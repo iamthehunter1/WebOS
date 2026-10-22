@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -5,15 +6,13 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #f4f4ff;
-
     background-color: #10101c;
     background-image: url("./wallpaper.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     overflow: hidden;
 }
 
@@ -22,84 +21,196 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    height: 48px;
     padding: 0 16px;
-    background-color: rgba(16, 16, 28, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(16, 16, 28, 0.78);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #393950;
+    z-index: 100;
 }
 
 .top-bar p {
-    margin: 12px 0;
+    margin: 0;
     font-size: 14px;
 }
 
 .os-name {
-    font-weight: bold;
+    font-weight: 700;
     color: #a99bff;
 }
 
 .welcome {
-    width: calc(100% - 32px);
-    max-width: 760px;
-    padding: 40px;
-
-    
-    border: 1px solid #393950;
-    border-radius: 20px;
-    background: rgba(27, 27, 43, 0.94);
-
-    box-shadow: 0 20px 60px #0005;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    width: calc(100% - 32px);
+    max-width: 760px;
+    padding: 40px;
+    border: 1px solid #393950;
+    border-radius: 20px;
+    background: rgba(27, 27, 43, 0.94);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .status {
     display: inline-block;
     padding: 7px 12px;
     border-radius: 20px;
-
     background: #252c42;
     color: #9ce6c0;
     font-size: 12px;
 }
 
-h1 {
+.welcome h1 {
     margin: 22px 0 8px;
     font-size: clamp(36px, 7vw, 58px);
     letter-spacing: -2px;
 }
 
-h1 span {
+.welcome h1 span {
     color: #a99bff;
 }
 
 .intro {
+    max-width: 560px;
     color: #bcbcd0;
     line-height: 1.7;
-    max-width: 560px;
 }
 
+.desktop-icons {
+    position: absolute;
+    top: 72px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 10;
+}
 
-.section-title {
-    margin-top: 32px;
-    font-size: 14px;
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.desktop-icons button,
+.window-content button {
+    padding: 10px 14px;
+    color: #f4f4ff;
+    background: #25253b;
+    border: 1px solid #494967;
+    border-radius: 8px;
+}
+
+.desktop-icons button:hover,
+.window-content button:hover {
+    background: #393454;
+}
+
+.app-window {
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 180px;
+    width: 340px;
+    max-width: calc(100vw - 24px);
+    color: #f4f4ff;
+    background: #1b1b2b;
+    border: 1px solid #494967;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    z-index: 20;
+}
+
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #252c42;
+    border-bottom: 1px solid #393950;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.window-titlebar:active {
+    cursor: grabbing;
+}
+
+.window-titlebar .close-button {
+    padding: 0 5px;
+    color: #f4f4ff;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+}
+
+.window-titlebar .close-button:hover {
     color: #a99bff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
+.window-content {
+    padding: 16px;
+}
+
+.window-content h2 {
+    margin-top: 0;
+    color: #a99bff;
+}
+
+.window-content p {
+    line-height: 1.5;
+}
+
+.version {
+    color: #bcbcd0;
+    font-size: 13px;
+}
+
+#notesText {
+    display: block;
+    width: 100%;
+    min-height: 130px;
+    margin-bottom: 12px;
+    padding: 10px;
+    resize: vertical;
+    color: #f4f4ff;
+    background: #10101c;
+    border: 1px solid #494967;
+    border-radius: 8px;
+    font: inherit;
+}
+
+#notesStatus {
+    display: block;
+    margin-top: 10px;
+    color: #9ce6c0;
+    font-size: 13px;
+}
 
 @media (max-width: 500px) {
     .welcome {
         padding: 24px;
+    }
+
+    .welcome h1 {
+        letter-spacing: -1px;
+    }
+
+    .desktop-icons {
+        top: 64px;
+        left: 10px;
+    }
+
+    .app-window {
+        left: 12px;
+        width: calc(100vw - 24px);
     }
 }

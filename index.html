@@ -4,36 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XzenXOS</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="top-bar">
+    <header class="top-bar">
         <p class="os-name">XzenXOS</p>
         <p id="timeElement">Loading time..</p>
-    </div>
+    </header>
 
     <main class="welcome">
         <span class="status">SYSTEM INITIALIZED</span>
-
         <h1>Welcome to <span>XzenXOS</span></h1>
-
-        <p class="intro">
-            It is a simple browser based OS built with HTMl and CSS.
-        </p>
+        <p class="intro">A small browser-based OS</p>
     </main>
 
-    <script>
-        function updateTime() {
-            var currentTime = new Date().toLocaleString();
-            var timeText = document.querySelector("#timeElement");
-            timeText.innerHTML = currentTime;
-        }
+    <nav class="desktop-icons">
+        <button type="button" onclick="openWindow('aboutWindow')">About XzenXOS</button>
+        <button type="button" onclick="openWindow('notesWindow')">Notes</button>
+    </nav>
 
-        updateTime();
-        setInterval(updateTime, 1000);
+    <section class="app-window" id="aboutWindow" aria-label="About XzenXOS">
+        <div class="window-titlebar" id="aboutWindowHeader">
+            <span>About XzenXOS</span>
+            <button type="button" class="close-button" onclick="closeWindow('aboutWindow')" aria-label="Close About window">x</button>
+        </div>
+        <div class="window-content">
+            <h2>XzenXOS</h2>
+            <p>A small web based OS</p>
+            <p>built with html, css and js</p>
+            <p class="version">Version 1.0.0</p>
+        </div>
+    </section>
 
-    </script>
+    <section class="app-window" id="notesWindow" aria-label="Notes">
+        <div class="window-titlebar" id="notesWindowHeader">
+            <span>Notes</span>
+            <button type="button" class="close-button" onclick="closeWindow('notesWindow')" aria-label="Close Notes window">X</button>
+        </div>
+        <div class="window-content">
+            <p>Start typing</p>
+            <textarea id="notesText" placeholder="Type your notes here"></textarea>
+            <button type="button" onclick="saveNotes()">save notes</button>
+            <span id="notesStatus" aria-live="polite"></span>
+        </div>
+    </section>
 </body>
 </html>
