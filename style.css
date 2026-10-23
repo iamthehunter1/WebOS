@@ -214,3 +214,62 @@ button {
         width: calc(100vw - 24px);
     }
 }
+
+
+.devpad-window {
+    width: 520px;
+    max-width: calc(100vw - 24px);
+
+}
+
+.devpad-window .window-content {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.devpad-window label {
+    color: #c9c2ff;
+    font-size: 12px;
+}
+
+
+.devpad-window input,
+.devpad-window select,
+.devpad-window textarea {
+    width: 100%;
+    padding: 10px;
+    color: #f4f4ff;
+    background: #10101c;
+    border: 1px solid #494967;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.devpad-window textarea {
+    min-height: 190px;
+    resize: vertical;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.devpad-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px    ;
+}
+
+
+#devPadStatus {
+    margin: 2px 0 0 ;
+    color: #9ce6c0;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 500px) {
+        .devpad-window {
+            width: calc(100vw - 24px);
+        }
+}

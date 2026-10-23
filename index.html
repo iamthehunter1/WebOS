@@ -22,6 +22,7 @@
     <nav class="desktop-icons">
         <button type="button" onclick="openWindow('aboutWindow')">About XzenXOS</button>
         <button type="button" onclick="openWindow('notesWindow')">Notes</button>
+        <button type="button" onclick="openWindow('devPadWindow')">DevPad</button>
     </nav>
 
     <section class="app-window" id="aboutWindow" aria-label="About XzenXOS">
@@ -48,6 +49,36 @@
             <button type="button" onclick="saveNotes()">save notes</button>
             <span id="notesStatus" aria-live="polite"></span>
         </div>
+    </section>
+    <section class="app-window devpad-window" id="devPadWindow" aria-label="DevPad">
+        <div class="window-titlebar" id="devPadWindowHeader">
+            <span>DevPad</span>
+            <button type="button" class="close-button" onclick="closeWindow('devPadWindow')" aria-label="close devpad">X</button>
+        </div>
+
+        <div class="window-content">
+            <label for="snippetList">Saved snippets</label>
+            <select id="snippetList">
+                <option value="">Choose a snippet</option>
+            </select>
+
+            <label for="snippetTitle">snippet title</label>
+            <input id="snippetTitle" type="text">
+
+            <label for="snippetCode">Code</label>
+            <textarea id="snippetCode" spellcheck="false"></textarea>
+
+            <div class="devpad-actions">
+                <button type="button" onclick="newSnippet()">New</button>
+                <button type="button" onclick="saveSnippet()">Save</button>
+                <button type="button" onclick="deleteSnippet()">Delete</button>
+            </div>
+
+            <p id="devPadStatus" role="status">Ready</p>
+
+
+        </div>
+
     </section>
 </body>
 </html>
